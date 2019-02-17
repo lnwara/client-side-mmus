@@ -7,8 +7,135 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+
+<style>
+@media only screen and (max-width:768px){
+.ui-float-label {
+  width:70%;
+  
+}
+#float-input{
+  width:50%;
+}
+.ui-float-label #no {
+  
+  width:30%;
+  display: none;
+}
+
+.ui-float-label button{
+  width:20%;
+}
+}
+
+
+.ui-dataview-content{
+  background-color: transparent !important;
+  border:none;
+  width: 300px;
+  
+}
+div b  {
+  color:white !important;
+}
+.ui-inputtext{
+  width: 190px;
+}
+.ui-widget-header {
+  background: transparent !important;
+  border-top:none !important;
+  border-right:none !important;
+  border-left:none !important;
+}
+
+.ui-orderlist-controls {
+display: none !important;
+}
+.ui-widget-content{
+background-color: transparent !important;
+color: white !important;
+border:none !important;
+
+
+}
+
+.ng-star-inserted{
+  text-align: left !important;
+  
+}
+
+.ui-helper-clearfix {
+    zoom: 1;
+}
+.ui-widget, .ui-widget * {
+    box-sizing: border-box;
+}
+.ng-star-inserted {
+    text-align: left !important;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+.ui-orderlist-item {
+    margin: 1px;
+    padding: .125em;
+    /* cursor: pointer; */
+    border: 0 none;
+    /* font-weight: inherit; */
+}
+.ui-state-highlight {
+  background-color: transparent !important;
+  border:none !important;
+  border-color: none !important;
+}
+.ui-orderlist-filter-container{
+  padding: 0px !important;
+  width: 210px !important;
+  margin: 0px !important;
+}
+.ui-picklist-buttons{
+  display: none !important;
+  
+}
+ .ui-picklist  {
+background-color: rgb(152,152,152 ,0.0) !important;
+}
+</style>
 </head>
-<body>
+<body style="background-color:#1a2034;">
+    <nav style="background-color:rgba(42, 50, 70, 0.8) !important;" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a style="color:#c6a64e;" class="navbar-brand" href="#">LOGO</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul  class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li  class="nav-item active">
+              
+              <a style="color:gray !important;" class="nav-link" href="./app/roles/roles.component.html">Roles <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a style="color:gray !important;" class="nav-link" href="#">Appotments</a>
+            </li>
+            <li class="nav-item">
+              <a style="color:gray !important;" class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input style="background-color:transparent; border-color:transparent;" class="form-control mr-sm-2" type="search" placeholder="Search">
+            <button style="background-color: #c6a64e; border:none; color:gray" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+  <div class="container">
+ 
   <app-root></app-root>
+</div>
 </body>
 </html>

@@ -1,0 +1,89 @@
+
+<p-dataView #dv [value]="availableRoles"  [rows]="20"  filterBy="roleName">
+<p-header>
+    <div class="ui-helper-clearfix" >
+        <div class="ui-g-12" >
+            
+            <div class="ui-g-12 ui-md-12 filter-container" >
+                <div style="position:relative">
+                    <input type="search" pInputText placeholder="Search by name" (keyup)="dv.filter($event.target.value)">
+                </div>
+            </div>
+        </div>
+    </div>
+</p-header>
+<ng-template let-role pTemplate="listItem" >
+    <div class="ui-g" >
+        <div class="ui-g-12 ui-md-8 role-details" >
+            <div class="ui-g">
+                <div class="ui-g-10 ui-sm-6"><b>{{role.roleName}}</b></div>
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-1 search-icon">
+            <button style="width:60px; height:30px; background-color:#c6a64e; border: none;" pButton type="button"  (click)="selectRole($event, role)">Details</button>
+        </div>
+    </div>
+</ng-template>
+<ng-template let-role pTemplate="gridItem">
+    <div  class="ui-g-12 ui-md-3">
+        
+    </div>
+</ng-template>
+</p-dataView>
+
+<!-- <p-dialog header="Permisions Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '225px' }"  (onAfterHide)="onDialogHide()">
+    <div  class="ui-g" *ngIf="selectedRoles">
+        <div class="ui-g-12" style="text-align:center">
+            <img >
+        </div>
+        <div class="ui-g-4">Role Name: </div>
+        <div class="ui-g-8">{{selectedRoles.roleName}}</div>
+
+        <div class="ui-g-4">Permisions: </div>
+        <p-pickList [source]="permesions" [target]="target" sourceHeader="Available" targetHeader="Selected" [responsive]="true" filterBy="name" 
+        dragdrop="true" sourceFilterPlaceholder="Search by brand" targetFilterPlaceholder="Search by brand" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}">
+    <ng-template let-car pTemplate="item">
+        <div class="ui-helper-clearfix">
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0"></div>
+        </div>
+        
+            <button type="button" (click)="functionToCloseDialog()" label="Accept"></button>
+          
+    </ng-template>
+</p-pickList>
+
+       
+
+       
+    </div>
+</p-dialog> -->
+
+
+<p-dialog  [(visible)]="displayDialog" (onHide)="hideDialog()" [modal]="true" [responsive]="true" [style]="{width: '550px', minWidth: '200px' , color:'black' }" [minY]="70" 
+        [maximizable]="true" [baseZIndex]="10000">
+        <div style="background-color:rgb(152,152,152 ,0.3);"  class="ui-g" *ngIf="selectedRoles">
+            <div class="ui-g-12" style="text-align:center">
+                
+            </div>
+            <div  class="ui-g-4">Role Name: </div>
+            <div class="ui-g-8">{{selectedRoles.roleName}}</div>
+    
+            <div class="ui-g-4">Permisions: </div>
+            <p-pickList [source]="permesions" [target]="targetpermesions" sourceHeader="Allowed" targetHeader="Not Allowed" [responsive]="true" filterBy="pName" 
+            dragdrop="true" sourceFilterPlaceholder="Search " targetFilterPlaceholder="Search " [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}">
+        <ng-template let-p pTemplate="item" >
+            <div class="ui-helper-clearfix">
+                <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{p.pName}}</div>
+            </div>
+            
+              
+        </ng-template>
+    </p-pickList>
+    
+           
+           
+        </div>
+</p-dialog>
+
+
+    

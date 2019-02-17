@@ -1,0 +1,219 @@
+
+<style>.boxshadow:hover{
+    box-shadow: 0 1px 5px 1px #c6a64e;
+}
+
+  </style>
+
+<div class="container">
+    <div class="row">
+      <div style="color:azure;" class="col">
+        1 of 2
+        <div class="side" >    
+            <div style="display:inline-flex; height: 100%; ">
+          <h3 style="color:#c6a64e; margin: 10%; padding: 10%;">Users</h3>
+          <i   (click)="op1.toggle($event)" style="color:#c6a64e; margin: 10%; padding: 20%; font-size: 22px;" class="fa fa-plus-square"></i></div>
+        <div class="ui-g">
+              <!-- <ul #dv   filterBy="firstName" class="boxshadow" >
+                  <div >
+                      <input type="search" pInputText placeholder="Search by name" (keyup)="dv.filter($event.target.value)" >
+                  </div>
+                    <li style="background-color: transparent; border-bottom-color: gray; border-top: none; border-left: none; border-right: none;" *ngFor="let user of availableUsers" class="ui-helper-clearfix" pDraggable="dd"
+                        (onDragStart)="dragStart($event,user)" (onDragEnd)="dragEnd($event)">
+                       
+                        <div id="test"  style="margin:8px 0 0 8px;float:left ; color: white; " (click)="op3.toggle($event)" >  {{user.firstName}}  </div>
+                        <p-overlayPanel #op3 >
+                            <form ><span class="ui-float-label" style="margin-top:5%;">
+                                <input  id="float-input" type="text" size="30" pInputText  > 
+                                <label for="float-input" data-target="#test" >{{user.firstName}} </label>
+                            </span>
+                            <h6 class="first" style="color: gray; margin:1%;">User role</h6>
+                            <p-dropdown [options]="cities"  placeholder="Developer" optionLabel="name" [showClear]="true"></p-dropdown> <br/>
+                            
+        
+                           
+                            <button style=" border:none; background-color:#c6a64e; margin:1%; margin-top:10%;  float:right;" pButton type="submit" (click)="createUser($event)" label="Edit" class="ui-button-rounded ui-button-danger"></button>
+                            <button style="border:none; background-color:#c6a64e; margin:1%; margin-top:10%; float:right;" pButton type="submit" (click)="createUser($event)" label="Delete" class="ui-button-rounded ui-button-danger"></button>
+                          
+                          </form>
+                        </p-overlayPanel>
+                    </li>
+                </ul> -->
+                <div class="ui-g-12 ui-md-8 ui-g-nopad drag-column boxshadow" style="background-color:transparent; border-radius: 9px; margin:1%; padding: 1%; width:230px; ">
+        
+                <p-orderList  [value]="availableUsers" [listStyle]="{'height':'250px'}"  
+                filter="filter" filterBy="firstName" filterPlaceholder="Filter by Name" dragdrop="true" >
+                <ng-template let-user pTemplate="item"    >
+                    <div class="ui-helper-clearfix" >
+                        <div  pDraggable="dd"
+                        (onDragStart)="dragStart($event,user)" (onDragEnd)="dragEnd($event)" style="font-size:14px;float:left;margin:15px 5px 0 0 ;" (click)="op3.toggle($event)">{{user.firstName}} {{user.lastName}}</div>
+                        <p-overlayPanel #op3 >
+                            <form ><span class="ui-float-label" style="margin-top:5%;">
+                                <input  id="float-input" type="text" size="30" pInputText  > 
+                                <label for="float-input" data-target="#test" >{{user.firstName}} </label>
+                            </span>
+                            <h6 class="first" style="color: gray; margin:1%;">User role</h6>
+                            <p-dropdown [options]="cities"  placeholder="Developer" optionLabel="name" [showClear]="true"></p-dropdown> <br/>
+                            
+        
+                           
+                            <button style=" border:none; background-color:#c6a64e; margin:1%; margin-top:10%;  float:right;" pButton type="submit" (click)="createUser($event)" label="Edit" class="ui-button-rounded ui-button-danger"></button>
+                            <button style="border:none; background-color:#c6a64e; margin:1%; margin-top:10%; float:right;" pButton type="submit" (click)="createUser($event)" label="Delete" class="ui-button-rounded ui-button-danger"></button>
+                          
+                          </form>
+                        </p-overlayPanel>
+                    </div>
+                </ng-template>
+            </p-orderList>
+            </div>
+            
+          </div>
+        
+        
+            
+              <div style="display:inline-flex; height: 100%;">
+          <h3 style="color:#c6a64e; margin: 10%; padding: 10%;">Groups</h3>
+          <i (click)="op2.toggle($event)" style="color:#c6a64e; margin: 10%; padding: 20%; font-size: 22px;" class="fa fa-plus-square"></i></div>
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-8 ui-g-nopad drag-column boxshadow" style="background-color:transparent; border-radius: 9px; margin:1%; padding: 1%; width:230px; ">
+                <!-- <ul  filter="filter" filterBy="firstName" class="boxshadow" style="margin:1%;padding:1%; ">
+                    <li style="background-color: transparent; border-bottom-color: gray; border-top: none; border-left: none; border-right: none;" *ngFor="let user of availableUsers" class="ui-helper-clearfix" pDraggable="dd"
+                        (onDragStart)="dragStart($event,user)" (onDragEnd)="dragEnd($event)">
+                        <div style="margin:8px 0 0 8px;float:left ; color:white; ">{{user.firstName}} {{user.lastName}}</div>
+                    </li>
+                </ul> -->
+                <p-orderList  [value]="availableGroups" [listStyle]="{'height':'250px'}"  
+                filter="filter" filterBy="GroupName" filterPlaceholder="Filter by Name" dragdrop="true" >
+                <ng-template let-group pTemplate="item"    >
+                    <div class="ui-helper-clearfix" >
+                        <div  pDraggable="dd"
+                        (onDragStart)="dragStart($event,group)" (onDragEnd)="dragEnd($event)" style="font-size:14px;float:left;margin:15px 5px 0 0 ;" (click)= "getUserinGroup(group.id)" (click)="op4.toggle($event)"  >{{group.groupName}} </div>
+                        <p-overlayPanel #op4>
+                            <form><span class="ui-float-label" style="margin:5% 0 5% 0 ;">
+                                <input id="float-input" type="text" size="30" pInputText> 
+                                <label for="float-input">{{group.groupName}}</label>
+                            </span>
+                            <h6>Members</h6>
+                        <p-listbox  [options]="userInGroup"  multiple="multiple" checkbox="checkbox" filter="filter" optionLabel="firstName">
+                          
+                        </p-listbox>
+                        
+                            <button style="margin-top:5%; border:none; background-color: #c6a64e; margin-bottom: 1%; float:right;" pButton type="submit" (click)="createUser($event)" label="Add" class="ui-button-rounded ui-button-danger"></button>
+                          </form>
+                        </p-overlayPanel>
+                        
+                    </div>
+                </ng-template>
+            </p-orderList>
+            </div>
+          </div>
+            </div>
+      </div>
+      <div style="color:azure;"class="col">
+        2 of 2
+        <span style="color:white;  margin-top:10%;" class="ui-float-label">
+            <input id="float-input" type="text" size="20" pInputText> 
+            <label id="no" for="float-input">Rule Name</label> 
+             Pick color :   <p-colorPicker  [inline]="false"> </p-colorPicker>
+             <button style="background-color:#c6a64e; border:none; margin-top: 1%;" pButton type="button" label="Add Rule" (click)="addColumn()" ></button>
+        </span>
+        
+        <ul style="list-style-type: none;" *ngFor="let col of dropcolumns; let i=index">
+        <li>
+        <div class="ui-g" style="  height: 500px; ">
+            
+            <div  class="ui-g-12 ui-md-18 drop-column" style=" margin-left: 0%; margin-right: 10%; margin-top:7%; border-left: 20px solid#c6a64e; " pDroppable="dd" 
+                (onDrop)="drop($event)"  >
+                <div style="display:inline-flex;">
+                    <h6 style="color:black; ">Role Name</h6>
+          
+                <button style="background-color:#c6a64e; border:none; margin-left: 130px; margin-bottom: 1%; float: right; " pButton type="button" label="X" (click)="removeColumn()" ></button>
+                </div>
+                
+                <p-table [value]="selectedUsers">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>name</th>
+                            <th>role</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-user>
+                        <tr>
+                            <td>{{user.firstName}}</td>
+                            <td>{{user.id}}</td>
+                            
+                        </tr>
+                    </ng-template>
+                </p-table>
+           
+             
+            </div>
+            
+           
+        </div>
+          </li>  
+        </ul>
+      </div>
+    </div>
+    </div>
+<p-overlayPanel #op1 >
+    <form ><span class="ui-float-label" style="margin-top:10%;">
+        <input id="float-input" type="text" size="30" pInputText > 
+        <label for="float-input">First Name</label>
+    </span>
+    <span class="ui-float-label" style="margin-top:10%;">
+        <input id="float-input" type="text" size="30" pInputText > 
+        <label for="float-input">Last Name</label>
+    </span>
+    <span class="ui-float-label" style="margin-top:10%;">
+        <input id="float-input" type="email" size="30" pInputText > 
+        <label for="float-input">e-mail</label>
+    </span>
+    <span class="ui-float-label" style="margin-top:10%;">
+        <input id="float-input" type="phone" size="30" pInputText > 
+        <label for="float-input">Phone</label>
+    </span>
+    <span class="ui-float-label" style="margin-top:10%;">
+        <p>Set Role</p>
+<p-dropdown [options]="Role"  [style]="{'width':'150px'}" filter="true">
+    <ng-template let-item pTemplate="selectedItem">
+        <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+    </ng-template>
+    <ng-template let-car pTemplate="item">
+        <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+            <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+        </div>
+    </ng-template>
+</p-dropdown>
+       
+    </span>
+   
+
+    <button style="margin-top:5%; border:none; background-color: #c6a64e; margin-bottom: 1%; float:right;" pButton type="submit"  label="Add" class="ui-button-rounded ui-button-danger"></button>
+  </form>
+</p-overlayPanel>
+
+<p-overlayPanel #op2>
+    <form><span class="ui-float-label" style="margin:5% 0 5% 0 ;">
+        <input id="float-input" type="text" size="30" pInputText> 
+        <label for="float-input">Group Name</label>
+    </span>
+    <h6>Select users</h6>
+<p-listbox [options]="availableUsers"  multiple="multiple" checkbox="checkbox" filter="filter" optionLabel="firstName">
+  
+</p-listbox>
+<h6>Set Role</h6>
+<p-listbox [options]="availableUsers"  multiple="false" checkbox="checkbox" filter="filter" optionLabel="firstName">
+  
+</p-listbox>
+    <button style="margin-top:5%; border:none; background-color: #c6a64e; margin-bottom: 1%; float:right;" pButton type="submit" (click)="createUser($event)" label="Add" class="ui-button-rounded ui-button-danger"></button>
+  </form>
+</p-overlayPanel>
+
+
+
+
+
+
+    
+
